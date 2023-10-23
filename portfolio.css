@@ -1,3 +1,6 @@
-body{
-    background-color: paleturquoise;
+*{
+    background-color: rgb(188, 243, 243) ;
+}
+h1{
+    background-color: rgb(159, 243, 243) ;
 }
