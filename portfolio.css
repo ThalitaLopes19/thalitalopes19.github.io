@@ -1,6 +1,59 @@
 *{
-    background-color: rgb(188, 243, 243) ;
+    background-color: black ;
+    font-family: Arial, Helvetica, sans-serif;
 }
-h1{
-    background-color: rgb(159, 243, 243) ;
+.area-menu{
+    text-align: center;
+    margin-top: 0;
+    background-color: #b750ee;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    height: 50%;
+
+}
+.area-menu a{
+    background-color: #b750ee;
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    transition: background.3s;
+    font-size: 20px;
+}
+.area-menu a:hover{
+    background-color: #B132F5;
+}
+.left{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    float: left;
+}
+
+.right{
+    width:  80vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    float: right;
+}
+ .left h1, h3{
+    color: white;
+    size: 15px;
+    letter-spacing: 2px;
+}
+.left h2{
+    color:#B132F5;
+    size: 40px;
+}
+.left button{
+    background-color: black;
+    border-radius: 5%;
+}
+.left button:hover{
+    color: #B132F5;
 }
