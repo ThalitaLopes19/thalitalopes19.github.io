@@ -1,20 +1,23 @@
 *{
     margin: 0;
     padding: 0;
-     
+    box-sizing: border-box;  
     font-family: Arial, Helvetica, sans-serif;
 }
 body{
+    align-items: center;
     background-color: black ;
     justify-content: center;
 }
+
+/*PÁGINA INICIAL*/
 h1{
     color: #B132F5;
     size: 15px;
 }
 .area-menu{
     text-align: center;
-    margin-top: 0;
+    margin-top: 20px;
     background-color: black;
     list-style: none;
     padding: 0;
@@ -54,16 +57,16 @@ h1{
     justify-content: center;
     float: right;
 }
- .left h1, h3{
+ .left h2, h3, p{
     color: white;
-    size: 15px;
+    font-size: 20px;
     letter-spacing: 2px;
     text-align: left;
     padding: 17px 3px;
 }
-.left h2{
+.left h1{
     color:#B132F5;
-    size: 20px;
+    font-size: 25px;
     text-align: left;
     padding: 17px 3px;
 }
@@ -79,31 +82,68 @@ h1{
     color: #B132F5;
 }
 
+/*PROJETOS*/
 .container{
+    width: 1150px;
+    padding: 20px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    padding: 32px;
-    align-items: center;
-}
-.container .card .img{
-    width: 70px;
-    height: 70px;
-}
-.container .card img{
-    width: 100%;
+    flex-wrap: wrap;
 }
 .container .card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #c466f7;
-    padding: 1rem 1.5rem;
+    position: relative;
+    padding: 10px;
+    width: 300px;
+    background-color: black;
+    margin: 20px;
+    border: 1px;
     border-radius: 5%;
-    max-height: 250px;
-    margin-left: 32px;
+    overflow: hidden;
+    transition: 0.5s;
+    text-align: center;
 }
-.container .card p{
-    font-weight: bolder;
+.container .card img{
+    transition: 0.5s;
+}
+.container .card h2{
+    color: white;
+    font-size: 2rem;
+}
+.container .card .text{
+    padding: 20px;
+    text-align: center;
+}
+.container .card .text p{
+    color: white;
+    transition: 0.5s;
+}
+.container .card .text button{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #B132F5;
+    border-radius: 8%;
+    text-decoration: none;
+    transition: 0.5s;
+    outline: none;
+}
+.container .card .text button a{
+  color: black;   
+  letter-spacing: 1px;
+}
+.container .card:hover{
+    background-color:#c677f0;
+    color: aliceblue;
+    margin-top: -30px;
+}
+.container .card:hover img{
+    filter: invert(1);
+}
+.container .card:hover .text p{
+    color: aliceblue;
+}
+.container .card:hover button{
+    background-color: #B132F5;
+    color: white;
 }
