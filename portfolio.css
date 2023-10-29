@@ -104,6 +104,8 @@ h1{
     text-align: center;
 }
 .container .card img{
+    width: 230px;
+    height: 230px;
     transition: 0.5s;
 }
 .container .card h2{

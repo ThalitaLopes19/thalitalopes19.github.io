@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronômetro</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            background-color: lightsteelblue;
+        }
+        .box{
+            background-color:  rgb(123, 161, 211);
+            padding: 40px;
+            border-radius: 5%;
+            border: 1px solid blue;
+        }
+        .timer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:  rgb(62, 122, 201);
+            height: 258px;
+            width: 250px;
+            border: 3px solid blue;
+            border-radius: 100%;
+            font-weight: 600;
+            font-size: 20px;
+            color: black;
+            margin-bottom: 10px;
+            padding: 20px;
+        }
+        .button{
+            display: flex;
+            gap: 10px;
+        }
+        .button button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 40px;
+            padding: 5px;
+            font-size: 20px;
+            border-radius: 7%;
+            border: none;
+            background-color:  rgb(62, 122, 201);
+            color: black;
+            cursor: pointer;
+            transition: background-color .1s ease-in;
+        }
+        .button button:hover{
+            background-color:  rgb(19, 95, 194);
+        }
+        .list{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            color: black;
+        }
+        .list p:first-child{
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="timer">
+            <h2 id="timer">00:00:00</h2>
+        </div>
+         
+      <div class="button">
+        <button onclick="start()">
+            <i class="fa-solid fa-play"></i>
+        </button>
+
+        <button onclick="pause()">
+            <i class="fa-solid fa-pause"></i>
+        </button>
+
+        <button onclick="stop()">
+            <i class="fa-solid fa-stop"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+    var seconds = 0
+    var minutes = 0
+    var hours = 0
+    var interval
+
+    function start(){
+        watch();
+       interval = setInterval(watch, 1000);
+    }
+
+    function pause(){
+        clearInterval(interval);
+    }
+ 
+    function stop(){
+        clearInterval(interval);
+         seconds = 0;
+         minutes = 0;
+         hours = 0;
+         document.getElementById('timer').innerText='00:00:00';
+    }
+
+    function watch(){
+        seconds= seconds +1;
+
+        if(seconds == 60){
+            minutes = minutes +1;
+            seconds =0;
+        }
+        if(minutes == 60){
+            minutes = 0
+            hours = hours +1;
+        }
+        document.getElementById('timer').innerText= twodigits(hours)+':'+twodigits(minutes)+':'+twodigits(seconds);
+    } 
+
+    function twodigits(digit){
+        if (digit <10){
+            return ('0' + digit);
+        }
+        else{
+            return(digit);
+        }
+    }
+ 
+ 
+</script>
+</body>
+</html>
