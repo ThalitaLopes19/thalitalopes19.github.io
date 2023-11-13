@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradutor</title>
+    
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkmagenta;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 5px;
+}
+h1{
+    color: white;
+    letter-spacing: 1px;
+}
+
+.box{
+    padding: 15px;
+    background-color: rgb(168, 64, 168);
+    box-shadow: 0 1px 1px black;
+    border-radius: 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.selects{
+    display: flex;
+    gap: 5px;
+}
+
+select{
+    width: 50%;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    border-color: darkmagenta;
+    border-radius: 5%;
+}
+
+.textareas{
+    display: flex;
+    gap: 5px;
+    border-radius: 5%;
+}
+
+textarea{
+    border-color: darkmagenta;
+    outline: none;
+    padding: 5px;
+    font-size: 18px;
+    width: 50%;
+    border-radius: 5px;
+    resize: none;
+    background-color: white;
+}
+
+button{
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    background-color: darkorchid;
+    color: white;
+    border-radius: 5%;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+button:hover{
+    opacity: 1,7;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tradutor</h1>
+        <div class="box">
+            <div class="selects">
+                <select class="selectFrom"></select>
+                <select class="selectTo"></select>
+            </div>
+            <div class="textareas">
+                <textarea id="textareaFrom" rows="10" placeholder="Digite o seu texto"></textarea>
+                <textarea name="" id="textareaTo"  rows="10" placeholder="Tradução" disabled></textarea>
+            </div>
+            <button id="btn">Traduzir</button>
+        </div>
+    </div>
+<script>
+    const textareaFrom = document.querySelector("#textareaFrom");
+const textareaTo = document.querySelector("#textareaTo");
+const btn = document.querySelector("#btn");
+const selects = document.querySelectorAll("select");
+
+const countries = {
+    "en-GB": "Inglês",
+    "es-ES": "Espanhol",
+    "it-IT": "Italiano",
+    "ja-JP": "Japonês",
+    "pt-BR": "Português",
+};
+
+selects.forEach((tag) => {
+    for (let country in countries){
+        let selected;
+        if (tag.className.includes("selectFrom") && country == "pt-BR"){
+            selected = "selected";
+        }
+        else if (tag.className.includes("selectTo") && country == "en-GB"){
+            selected = "selected";
+        }
+
+        const option = `<option value="${country}" ${selected}>${countries[country]}</option>`;
+
+        tag.insertAdjacentHTML("beforeend", option);
+    }
+
+});
+
+btn.addEventListener("click", () => {
+    if (textareaFrom.value) {
+      loadTranslation();
+    } else {
+      textareaTo.value = "";
+    }
+  });
+
+function loadTranslation() {
+    fetch(
+        `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      textareaTo.value = data.responseData.translatedText;
+});
+}
+</script>
+</body>
+</html>
