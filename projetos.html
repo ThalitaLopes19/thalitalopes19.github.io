@@ -14,7 +14,7 @@
           <i class="bi bi-list" id="btn-expandir"></i>
         </div>
         <ul>
-          <li class="item-menu ativo">
+          <li class="item-menu">
             <a href="portfolio.html">
               <span class="icon"><i class="bi bi-house-fill"></i></span>
               <span class="text">Home</span>
@@ -26,14 +26,14 @@
               <span class="text">Sobre mim</span>
             </a>
           </li>
-          <li class="item-menu">
+          <li class="item-menu ativo">
             <a href="projetos.html">
               <span class="icon"><i class="bi bi-folder-fill"></i></span>
               <span class="text">Projetos</span>
             </a>
           </li>
           <li class="item-menu">
-            <a href="#">
+            <a href="contato.html">
               <span class="icon"><i class="bi bi-chat-dots-fill"></i></span>
               <span class="text">Contato</span>
             </a>
@@ -41,30 +41,7 @@
         </ul>
       </div>
   
-      <script>
-        var menuItem = document.querySelectorAll('.item-menu')
-  
-      function selectLink(){
-      menuItem.forEach((item)=>
-      item.classList.remove('ativo')
-      )
-      this.classList.add('ativo')
-      }
-  
-      menuItem.forEach((item)=> 
-      item.addEventListener('click', selectLink)
-    )
-  
-    //abrir o menu
-    var btnExpandir = document.querySelector('#btn-expandir')
-    var menuExp = document.querySelector('.menu')
-  
-    btnExpandir.addEventListener('click', function(){
-      menuExp.classList.toggle('expandir')
-    })
-  
-      </script>
-
+     
 <div class="title">
   <h1>Meus Projetos</h1>
 </div>
@@ -73,39 +50,51 @@
     <!--PROJETO:CALCULADORA -->
         <div class="card">
             <div class="img">
-                <img src="imagens/calculadora.jpg">
+                <a href="calculadora.html"><img src="imagens/calculadora.jpg">
             </div>
-            <h2>Calculadora</h2>
-            <div class="text">
-                <p>Calculadora criada utilizando HTML, CSS e JavaScript.</p>
-                <a href="calculadora.html"><button>Ver projeto</button></a>
-            </div>
+            <h2>Calculadora</h2></a>
         </div>
 
         <!--PROJETO: CRONÔMETRO -->
         <div class="card">
-            <div class="img">
+            <a href="cronometro.html"><div class="img">
                 <img src="imagens/cronometro.jpg">
             </div>
-            <h2>Cronômetro</h2>
-            <div class="text">
-                <p>Cronômetro criado utilizando HTML, CSS e JavaScript.</p>
-                <a href="cronometro.html"><button>Ver projeto</button></a>
-            </div>
+            <h2>Cronômetro</h2></a>
         </div>
 
         <!--PROJETO: TRADUTOR -->
         <div class="card">
-            <div class="img">
+            <a href="tradutor.html"><div class="img">
                 <img src="imagens/tradutor.jpg">
             </div>
-            <h2>Tradutor</h2>
-            <div class="text">
-                <p>Tradutor criado utilizando HTML, CSS e JavaScript.</p>
-                <a href="tradutor.html"><button>Ver projeto</button></a>
-            </div>
+            <h2>Tradutor</h2></a>
         </div>
     </div>
     
+    <script>
+      var menuItem = document.querySelectorAll('.item-menu')
+
+    function selectLink(){
+    menuItem.forEach((item)=>
+    item.classList.remove('ativo')
+    )
+    this.classList.add('ativo')
+    }
+
+    menuItem.forEach((item)=> 
+    item.addEventListener('click', selectLink)
+  )
+
+  //abrir o menu
+  var btnExpandir = document.querySelector('#btn-expandir')
+  var menuExp = document.querySelector('.menu')
+
+  btnExpandir.addEventListener('click', function(){
+    menuExp.classList.toggle('expandir')
+  })
+
+    </script>
+
 </body>
 </html>
